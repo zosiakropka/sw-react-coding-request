@@ -7,9 +7,12 @@
     "react-dom": "^15.4.2"
   },
   "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-plugin-react": "^6.10.3",
     "react-scripts": "0.9.3"
   },
   "scripts": {
+    "eslint": "./node_modules/.bin/eslint .",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
