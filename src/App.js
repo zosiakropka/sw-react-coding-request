@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
-import FormComponent from './github_repository/FormComponent';
+import { default as RepoFormComponent } from './github_repository/FormComponent';
+import TabsComponent from './tabs/TabsComponent';
 
 class App extends Component {
   render() {
+
+    const chartTabDatas = [];
+
     return (
       <div className="App">
-        <FormComponent/>
+        <RepoFormComponent/>
+        <TabsComponent tabDatas={chartTabDatas}/>
       </div>
     );
   }
