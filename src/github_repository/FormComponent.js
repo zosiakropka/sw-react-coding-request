@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import mediator from './../Mediator';
 import './FormComponent.css';
 
-const DEFAULT_REPO_ENTERED = 'git@github.com:nodejs/node.git';
+const DEFAULT_REPO = 'git@github.com:nodejs/node.git';
+
+const publishRepoUrl = (repoUrl) => {
+  mediator.emit('github_repo:entered', {'repoUrl': repoUrl});
+};
 
 class FormComponent extends Component {
   constructor() {
@@ -15,7 +19,6 @@ class FormComponent extends Component {
         <input
           className="repository-form__repo-url"
           type="text"
-          defaultValue={ DEFAULT_REPO_ENTERED }
           ref={(ref) => {
             this._repoUrlRef = ref;
           }}/>
@@ -23,9 +26,14 @@ class FormComponent extends Component {
     );
   }
 
+  componentDidMount () {
+    this._repoUrlRef.value = DEFAULT_REPO;
+    publishRepoUrl(DEFAULT_REPO);
+  }
+
   _handleRepoEntered(event) {
     const repoUrl = this._repoUrlRef.value;
-    mediator.emit('github_repo:entered', {'repoUrl': repoUrl});
+    publishRepoUrl(repoUrl);
     event.preventDefault();
   }
 }

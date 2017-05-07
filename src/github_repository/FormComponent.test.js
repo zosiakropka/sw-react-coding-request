@@ -20,7 +20,7 @@ describe('#render()', () => {
 });
 
 describe('on form submit', () => {
-  it('publishes "github_repo:entered" if repoUrl is entered and valid', () => {
+  it('emits "github_repo:entered" if repoUrl is entered and valid', () => {
     const repoUrl = 'git@github.com:zosia/exercise.git';
     const $form = mount(<FormComponent />);
     const $repoUrl = $form.find('.repository-form__repo-url');
@@ -33,7 +33,7 @@ describe('on form submit', () => {
       'github_repo:entered', {repoUrl: repoUrl});
   });
 
-  it('publishes "github_repo:entered" if repoUrl is entered and not valid', () => {
+  it('emits "github_repo:entered" if repoUrl is entered and not valid', () => {
     const invalidRepoUrl = 'not-a-valid-github-repo-url';
     const $form = mount(<FormComponent />);
     const $repoUrl = $form.find('.repository-form__repo-url');
@@ -46,7 +46,7 @@ describe('on form submit', () => {
       'github_repo:entered', {repoUrl: invalidRepoUrl});
   });
 
-  it('publishes "github_repo:entered" if repoUrl is empty', () => {
+  it('emits "github_repo:entered" if repoUrl is empty', () => {
     const $form = mount(<FormComponent />);
     const $repoUrl = $form.find('.repository-form__repo-url');
     spyOn(mediator, 'emit');
