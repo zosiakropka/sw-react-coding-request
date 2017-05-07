@@ -6,6 +6,7 @@ import TabsComponent from './tabs/TabsComponent';
 
 import CodeFrequencyComponent from './repo_stats/code_frequency/Component';
 import PunchCardComponent from './repo_stats/punch_card/Component';
+import CommitActivityComponent from './repo_stats/commit_activity/Component';
 
 class App extends Component {
   constructor() {
