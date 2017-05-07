@@ -24,6 +24,7 @@ class ChartComponent extends Component {
   }
 
   _renderChart() {
+    this._clearChart();
     const data = this.props.data;
     const ChartBuilder = this.props.ChartBuilder;
 
@@ -34,10 +35,16 @@ class ChartComponent extends Component {
     const ctx = this._id;
     const builder = new ChartBuilder();
 
-    builder
+    this._currentChart = builder
       .setContext(ctx)
       .setData(data)
       .build();
+  }
+
+  _clearChart() {
+    if (this._currentChart) {
+      this._currentChart.destroy();
+    }
   }
 }
 
