@@ -12,8 +12,8 @@ import moment from 'moment';
 
 const TYPE = 'bubble';
 
-const POINT_BG_COLOR = 'rgba(75,192,192,0.4)';
-const POINT_BORDER_COLOR = 'rgba(75,192,192,1)';
+const POINT_BG_COLOR = 'rgba(54, 162, 235, 0.2)';
+const POINT_BORDER_COLOR = 'rgba(54, 162, 235, 1)';
 
 const normalizeNumber = ({value, maxValue, maxRadius}) => {
   if (maxValue === 0) {
@@ -108,8 +108,8 @@ class ChartBuilder {
     const outputData = inputToOutput(this._data);
     const dataset = {
       data: outputData.data,
-      backgroundColor: [POINT_BG_COLOR],
-      borderColor: [POINT_BORDER_COLOR]
+      backgroundColor: POINT_BG_COLOR,
+      borderColor: POINT_BORDER_COLOR
     };
     const config = {
       type: TYPE,
