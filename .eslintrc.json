@@ -72,7 +72,7 @@
         "id-length": [
           "error",
           {
-            "exceptions": ["_", "$", "i"]
+            "exceptions": ["_", "$", "i", "x", "y", "r"]
           }
         ],
         "id-match": "error",

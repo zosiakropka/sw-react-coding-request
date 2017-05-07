@@ -3,7 +3,8 @@ import './App.css';
 import { default as RepoFormComponent } from './github_repository/FormComponent';
 import TabsComponent from './tabs/TabsComponent';
 
-import { default as CodeFrequencyComponent } from './repo_stats/code_frequency/Component';
+import CodeFrequencyComponent from './repo_stats/code_frequency/Component';
+import PunchCardComponent from './repo_stats/punch_card/Component';
 
 class App extends Component {
   constructor() {
@@ -17,6 +18,11 @@ class App extends Component {
         name: 'Code Frequency',
         children:
           <CodeFrequencyComponent />
+      },
+      {
+        name: 'Punch Card',
+        children:
+          <PunchCardComponent />
       }
     ];
 
