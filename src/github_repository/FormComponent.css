@@ -1,0 +1,16 @@
+.repository-form {
+  background-color: slategrey;
+  padding: 1rem;
+  box-sizing: padding-box;
+}
+
+.repository-form__repo-url {
+  background-color: #222;
+  padding: 0.5rem;
+  border: none;
+  box-shadow: none;
+  color: whitesmoke;
+  width: 50%;
+  min-width: 10rem;
+  height: 2rem;
+}

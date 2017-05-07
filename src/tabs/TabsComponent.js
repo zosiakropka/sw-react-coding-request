@@ -1,30 +1,57 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
+import './Tabs.css';
 
 class TabsComponent extends Component {
+  constructor() {
+    super();
+    this.state = {
+      selectedTab: 0
+    };
+  }
+
   render() {
     const subComponents = {
       tabButtons: [],
-      tabChildren: []
+      tabContents: []
     };
 
     _.each(this.props.tabDatas, (tabData, index) => {
-      const tabButton = <input
-        className="tab-button"
-        type="button"
-        value={tabData.name}
-        key={ index }/>;
-      const tabContent = <content
-        className="tab-content"
-        key={ index }>{ tabData.children }</content>;
+      const isSelected = this.state.selectedTab === index;
+      const isSelectedSuffix = isSelected ? 'selected' : 'hidden';
+      const tabContent =
+        <content
+          className={ `tabs__content--${isSelectedSuffix}`}
+          key={ index }>
+            { tabData.children }
+        </content>;
+      const tabButton =
+        <li
+          key={ index }
+          onClick={
+            () => {
+              this.setState({selectedTab: index});
+            }
+          }
+          className={ `tabs__entry--${isSelectedSuffix}` }>
+          <input
+            className="tabs__entry-button"
+            type="button"
+            value={tabData.name}/>
+        </li>;
+
       subComponents.tabButtons.push(tabButton);
-      subComponents.tabChildren.push(tabContent);
+      subComponents.tabContents.push(tabContent);
     });
 
     return (
-      <div>
-        { subComponents.tabButtons }
-        { subComponents.tabChildren }
+      <div className="tabs-container">
+        <nav>
+          <ul className="tabs">{ subComponents.tabButtons }</ul>
+        </nav>
+        <div className="tabs-contents">
+        { subComponents.tabContents }
+        </div>
       </div>
     );
   }

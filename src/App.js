@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './reset.css';
 import './App.css';
 import { default as RepoFormComponent } from './github_repository/FormComponent';
 import TabsComponent from './tabs/TabsComponent';
@@ -16,13 +17,15 @@ class App extends Component {
     const chartTabDatas = [
       {
         name: 'Code Frequency',
-        children:
-          <CodeFrequencyComponent />
+        children: <CodeFrequencyComponent />
       },
       {
         name: 'Punch Card',
-        children:
-          <PunchCardComponent />
+        children: <PunchCardComponent />
+      },
+      {
+        name: 'Commit Activity',
+        children: <CommitActivityComponent />
       }
     ];
 

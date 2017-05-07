@@ -7,6 +7,7 @@ import TabsComponent from './tabs/TabsComponent';
 import TestUtils from 'react-dom/test-utils';
 import CodeFrequencyComponent from './repo_stats/code_frequency/Component';
 import PunchCardComponent from './repo_stats/punch_card/Component';
+import CommitActivity from './repo_stats/commit_activity/Component';
 
 describe('App', () => {
   var component;
@@ -49,6 +50,18 @@ describe('App', () => {
       TestUtils.findRenderedComponentWithType(
         tabsComponent,
         PunchCardComponent);
+    }).not.toThrow();
+  });
+
+  it('renders CommitActivity in a tab', () => {
+    const tabsComponent = TestUtils.findRenderedComponentWithType(
+      component,
+      TabsComponent);
+
+    expect(() => {
+      TestUtils.findRenderedComponentWithType(
+        tabsComponent,
+        CommitActivity);
     }).not.toThrow();
   });
 });

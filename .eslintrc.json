@@ -113,7 +113,7 @@
           }
         ],
         "max-statements-per-line": "error",
-        "multiline-ternary": "error",
+        "multiline-ternary": "off",
         "new-cap": "error",
         "new-parens": "error",
         "newline-after-var": "off",
@@ -190,7 +190,7 @@
         "no-sync": "error",
         "no-tabs": "error",
         "no-template-curly-in-string": "error",
-        "no-ternary": "error",
+        "no-ternary": "off",
         "no-throw-literal": "off",
         "no-trailing-spaces": "error",
         "no-undef-init": "error",

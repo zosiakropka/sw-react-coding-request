@@ -15,14 +15,15 @@ const twoTabsDatas = [
 
 it('renders all tab buttons', () => {
   const $tabs = mount(<TabsComponent tabDatas={twoTabsDatas}/>);
-  expect($tabs.find('.tab-content').length).toBe(2);
-  expect($tabs.find('.tab-content .component--animals').length).toBe(1);
-  expect($tabs.find('.tab-content .component--plants').length).toBe(1);
+  expect($tabs.find('.tabs__entry-button').length).toBe(2);
+  expect($tabs.find('.tabs__entry-button').get(0).value).toBe('Animals');
+  expect($tabs.find('.tabs__entry-button').get(1).value).toBe('Plants');
 });
 
 it('renders all tab contents', () => {
   const $tabs = mount(<TabsComponent tabDatas={twoTabsDatas}/>);
-  expect($tabs.find('.tab-button').length).toBe(2);
-  expect($tabs.find('.tab-button').get(0).value).toBe('Animals');
-  expect($tabs.find('.tab-button').get(1).value).toBe('Plants');
+  expect($tabs.find('.tabs__content--selected').length).toBe(1);
+  expect($tabs.find('.tabs__content--hidden').length).toBe(1);
+  expect($tabs.find('.tabs__content--selected .component--animals').length).toBe(1);
+  expect($tabs.find('.tabs__content--hidden .component--plants').length).toBe(1);
 });
