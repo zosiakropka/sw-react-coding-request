@@ -1,18 +1,39 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import './reset.css';
 import './App.css';
+import { default as RepoFormComponent } from './github_repository/FormComponent';
+import TabsComponent from './tabs/TabsComponent';
+
+import CodeFrequencyComponent from './repo_stats/code_frequency/Component';
+import PunchCardComponent from './repo_stats/punch_card/Component';
+import CommitActivityComponent from './repo_stats/commit_activity/Component';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
+
   render() {
+    const chartTabDatas = [
+      {
+        name: 'Code Frequency',
+        children: <CodeFrequencyComponent />
+      },
+      {
+        name: 'Punch Card',
+        children: <PunchCardComponent />
+      },
+      {
+        name: 'Commit Activity',
+        children: <CommitActivityComponent />
+      }
+    ];
+
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <RepoFormComponent />
+        <TabsComponent tabDatas={chartTabDatas} />
       </div>
     );
   }
